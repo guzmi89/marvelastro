@@ -1,0 +1,189 @@
+---
+import "@fontsource/marvel";
+---
+<div class="dark:bg-gray-800 bg-slate-50">
+  <div class="flex p-1 container mx-auto">
+    <div class="flex-grow self-center">
+      <a href="/"
+        ><img
+          class="h-12 w-36 sm:h-14 sm:w-45 hover:brightness-200 hover:animate-pulse"
+          src="/img/logo.png"
+          width="144"
+          height="48"
+          alt="logo"
+        /></a
+      >
+    </div>
+    <ul class="sm:inline-flex self-center space-x-4 hidden">
+      <li
+        class="font-marvel text-2xl text-gray-900 hover:text-black hover:decoration-black dark:text-gray-100 dark:hover:text-gray-400 dark:hover:decoration-sky-500 hover:underline hover:underline-offset-8 p-2"
+      >
+        <a href="/films">Películas</a>
+      </li>
+      <li
+        class="font-marvel text-2xl text-gray-900 hover:text-black hover:decoration-black dark:text-gray-100 dark:hover:text-gray-400 dark:hover:decoration-sky-500 hover:underline hover:underline-offset-8 p-2"
+      >
+        <a href="/comics">Comics</a>
+      </li>
+      <li
+        class="font-marvel text-2xl text-gray-900 hover:text-black hover:decoration-black dark:text-gray-100 dark:hover:text-gray-400 dark:hover:decoration-sky-500 hover:underline hover:underline-offset-8 p-2"
+      >
+        <a href="/heroes">Héroes</a>
+      </li>
+    </ul>
+    <div
+      class="inline-flex self-center space-x-4 sm:ml-2 sm:pl-2 sm:border-l-2 sm:border-gray-500"
+    >
+      <button type="button" id="theme-selector">
+        <span class="sr-only"
+          >Enable <span class="dark:hidden">light</span><span
+            class="hidden dark:inline">dark</span
+          > mode</span
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="hidden dark:inline icon icon-tabler icons-tabler-outline icon-tabler-moon-stars fill-sky-500"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+          ></path><path
+            d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"
+          ></path><path d="M19 11h2m-1 -1v2"></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="dark:hidden icon icon-tabler icons-tabler-outline icon-tabler-sun fill-yellow-600/20 stroke-yellow-600"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path
+            d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <button
+      id="menu-button"
+      class="sm:hidden navbar-burger flex items-center text-black dark:text-gray-500 p-3"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2 h-7 w-7 fill-current"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M4 6l16 0"></path><path d="M4 12l16 0"></path><path d="M4 18l16 0"
+        ></path></svg
+      >
+    </button>
+    <div id="menu-open" class="navbar-menu relative z-50 hidden">
+      <div
+        class="navbar-backdrop fixed inset-0 dark:bg-gray-800 dark:opacity-25"
+      >
+      </div>
+      <nav
+        class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-slate-100 dark:bg-gray-800 border-r overflow-y-auto opacity-95"
+      >
+        <div class="flex items-center justify-end mb-8">
+          <button id="menu-button-close" class="navbar-close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-x h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg
+            >
+          </button>
+        </div>
+        <div>
+          <ul>
+            <li
+              class="font-marvel text-2xl text-gray-900 hover:text-black hover:decoration-black dark:text-gray-100 dark:hover:text-gray-400 dark:hover:decoration-sky-500 hover:underline hover:underline-offset-8 p-2"
+            >
+              <a href="/films">Películas</a>
+            </li>
+            <li
+              class="font-marvel text-2xl text-gray-900 hover:text-black hover:decoration-black dark:text-gray-100 dark:hover:text-gray-400 dark:hover:decoration-sky-500 hover:underline hover:underline-offset-8 p-2"
+            >
+              <a href="/comics">Comics</a>
+            </li>
+            <li
+              class="font-marvel text-2xl text-gray-900 hover:text-black hover:decoration-black dark:text-gray-100 dark:hover:text-gray-400 dark:hover:decoration-sky-500 hover:underline hover:underline-offset-8 p-2"
+            >
+              <a href="/heroes">Héroes</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex justify-center mt-8">
+          <img
+            class="w-1/4 grayscale"
+            src="/img/logo.png"
+            width="77"
+            height="24"
+            alt="logo"
+          />
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+<script>
+  //Lógica de del menú de hamburguesa
+  const button = document.querySelector("#menu-button") as Element;
+  const buttonclose = document.querySelector("#menu-button-close") as Element;
+  const menuOpen = document.querySelector("#menu-open") as Element;
+
+  button.addEventListener("click", () => {
+    menuOpen.classList.toggle("hidden");
+  });
+  buttonclose.addEventListener("click", () => {
+    menuOpen.classList.toggle("hidden");
+  });
+
+  //Lógica del toggle modo oscuro/claro
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+  document.getElementById("theme-selector")?.addEventListener("click", () => {
+    if (localStorage.theme === "dark") {
+      localStorage.theme = "light";
+      document.documentElement.classList.remove("dark");
+    } else {
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
+    }
+  });
+</script>
