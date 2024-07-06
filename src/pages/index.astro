@@ -1,12 +1,23 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-
 ---
 
 <Layout title="Marvel Project" description="Web ejemplo de desarrollo con temática del universo de Marvel">
 	<main>
-
-	
+		<div class="bg-gray-200 text-black mt-4 p-4 text-center font-marvel text-xl dark:bg-gray-600 dark:text-white italic">
+			El universo Marvel es un mundo amplio plagado de superhéroes y creado por el difunto "Stan Lee"
+		</div>
+		<div class="flex flex-wrap container mx-auto justify-center mt-4">
+			<div class="text-center w-full md:w-1/4">
+				<Image src="/img/stanlee.png" alt="Stan Lee" width="450" height="512"/>
+			</div>
+			<div class="text-center w-full md:w-3/4 pl-2 pr-2">
+				<p class="text-black dark:text-zinc-50 font-marvel text-xl">
+					Es principalmente conocido por haber creado personajes icónicos del mundo del cómic tales como Spider-Man, X-Men, Los 4 Fantásticos, Hulk, Iron Man, Thor, Daredevil, Doctor Strange, Black Panther, Ant-Man y Bruja Escarlata, entre otros muchos superhéroes, casi siempre acompañado de los dibujantes Steve Ditko y Jack Kirby. El trabajo de Stan Lee fue fundamental para expandir Marvel Comics, llevándola de una pequeña casa publicitaria a una gran corporación multimedia. Todavía hoy, los cómics de Marvel se distinguen por indicar siempre «Stan Lee presenta» en los rótulos de presentación. También tuvo un programa televisivo en History Channel en donde buscaba superhumanos «reales».
+				</p>
+			</div>
+		</div>
 	</main>
 </Layout>
 
