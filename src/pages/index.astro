@@ -29,7 +29,7 @@ const characters = data.data.results;
 		</div>
 		<div class="flex flex-wrap justify-center mt-4 bg-slate-300 dark:bg-gray-700 gap-x-2 gap-y-2 p-3">
 			{
-				characters.map(character => (
+				characters.map((character: { thumbnail: { path: string; extension: string; }; name: string; }) => (
 				<Image class="transition-all duration-500 hover:shadow-lg hover:shadow-white w-32 h-32 rounded-full hover:animate-pulse hover:brightness-125 hover:border-2 hover:-translate-y-5" src={(`${character.thumbnail.path}.${character.thumbnail.extension}`)} alt={character.name} title={character.name} width="32" height="32"/>
 				))
 				
