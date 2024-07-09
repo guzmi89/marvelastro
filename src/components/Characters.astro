@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+
+const api_marvel = import.meta.env.PUBLIC_URL_APIMARVEL;
+const token_marvel = import.meta.env.SECRET_TOKEN_APIMARVEL;
+const hash = import.meta.env.SECRET_HASH_APIMARVEL;
+const ts = import.meta.env.SECRET_TS_APIMARVEL;
+
+const response = await fetch(
+  `${api_marvel}characters?series=22547&limit=12&ts=${ts}&apikey=${token_marvel}&hash=${hash}`
+);
+const data = await response.json();
+const characters = data.data.results;
+
+---
+{
+    characters.map(
+          (character: {
+            thumbnail: { path: any; extension: any };
+            name: any;
+          }) => (
+            <Image
+              class="transition-all duration-500 hover:shadow-lg hover:shadow-white w-32 h-32 rounded-full hover:animate-pulse hover:brightness-125 hover:border-2 hover:-translate-y-5"
+              src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+              alt={character.name}
+              title={character.name}
+              width="32"
+              height="32"
+            />
+          )
+        )
+}
