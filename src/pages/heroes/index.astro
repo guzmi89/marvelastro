@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCharacters, getFilms } from "../../services/marvel";
+
+const characters = await getCharacters(48);
+---
+
+<Layout
+  title="Listado de SuperHéroes"
+  description="Web ejemplo de desarrollo con temática del universo de Marvel"
+>
+  <div
+    class="flex flex-wrap justify-center mt-4 bg-slate-300 dark:bg-gray-700 gap-x-2 gap-y-2 p-3"
+  >
+    {
+      characters.map(
+        (character: {
+          id: any;
+          thumbnail: { path: any; extension: any };
+          name: any;
+        }) => (
+          <div class="flex justify-center hover:scale-105 transition-all duration-500">
+            <div class="rounded-lg shadow-lg bg-white dark:bg-gray-600">
+              <a href={`/heroes/${character.id}`}>
+                <Image
+                  class="rounded-t-lg w-80 h-80"
+                  src={
+                    character.thumbnail.path +
+                    "." +
+                    character.thumbnail.extension
+                  }
+                  alt={character.name}
+                  title={character.name}
+                  width="80"
+                  height="80"
+                />
+              </a>
+              <div class="p-2">
+                <h5 class="text-gray-900 dark:text-gray-300 text-xl font-medium mb-2">
+                  {character.name}
+                </h5>
+              </div>
+            </div>
+          </div>
+        )
+      )
+    }
+  </div>
+</Layout>

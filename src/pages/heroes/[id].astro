@@ -1,0 +1,40 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCharacters } from "../../services/marvel";
+import { getCharacterBy } from "../../services/marvel";
+
+const { id } = Astro.params;
+
+let character = null;
+if (id) {
+  character = await getCharacterBy({id});
+}
+
+export async function getStaticPaths() {
+
+  const characters = await getCharacters(48);
+
+  return characters.map(character => ({
+    params: { id: character.id },
+  }))
+}
+---
+
+<Layout
+  title={character.name}
+  description={character.description}
+>
+{
+    <div class="m-4 w-full md:w-2/4 mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                <div class="px-4 py-2">
+                    <h1 class="text-3xl font-bold text-gray-800 dark:text-white">{character.name}</h1>
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{character.description}</p>
+                </div>
+
+                <Image class="object-cover w-full h-96 mt-2" src={character.thumbnail.path+'.'+character.thumbnail.extension} alt={character.name} title={character.name} width="96" height="96"/>
+            </div>
+}
+
+</Layout>

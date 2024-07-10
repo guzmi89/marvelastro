@@ -1,16 +1,8 @@
 ---
 import { Image } from 'astro:assets';
+import { getCharacters } from '../services/marvel';
 
-const api_marvel = import.meta.env.PUBLIC_URL_APIMARVEL;
-const token_marvel = import.meta.env.SECRET_TOKEN_APIMARVEL;
-const hash = import.meta.env.SECRET_HASH_APIMARVEL;
-const ts = import.meta.env.SECRET_TS_APIMARVEL;
-
-const response = await fetch(
-  `${api_marvel}characters?series=22547&limit=12&ts=${ts}&apikey=${token_marvel}&hash=${hash}`
-);
-const data = await response.json();
-const characters = data.data.results;
+const characters = await getCharacters(12);
 
 ---
 {
