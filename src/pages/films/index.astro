@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import { getFilms } from '../../services/marvel'
+
+const films = await getFilms();
+---
+
+<Layout
+  title="Listado de Películas"
+  description="Web ejemplo de desarrollo con temática del universo de Marvel"
+>
+<div class="flex flex-wrap justify-center mt-4 bg-slate-300 dark:bg-gray-700 gap-x-2 gap-y-2 p-3">
+{
+    films.map(
+          (film: {
+            id: any;
+            title: any;
+            image: any;
+            year: any;
+          }) => (
+          <div class="flex justify-center w-64 hover:scale-105 transitio-all duration-500">
+                            <div class="rounded-lg shadow-lg bg-white dark:bg-gray-600">
+                                <a href={`/films/${film.id}`}>
+                                        <Image class="rounded-t-lg w-64 h-96" src={film.image} alt={film.title} title={film.title} width="64" height="96"/>
+                                    </a>
+                                <div class="p-2 text-center">
+                                    <h5 class="text-gray-900 dark:text-gray-300 text-lg font-medium mb-2">{film.title}</h5>
+                                    <span class="text-gray-900 dark:text-gray-300 text-base font-medium mb-2">({film.year})</span>
+                                </div>
+                            </div>
+                        </div>
+          )
+        )
+}
+</div>
+</Layout>
+
