@@ -1,4 +1,5 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
@@ -12,14 +13,7 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
+  <BaseHead title={title} description={description} />
   <body
     class="bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 from-slate-100 to-slate-400"
   >
