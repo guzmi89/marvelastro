@@ -1,5 +1,4 @@
 ---
-import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getCharacters } from "../../services/marvel";
@@ -16,7 +15,7 @@ export async function getStaticPaths() {
 
   const characters = await getCharacters(48);
 
-  return characters.map(character => ({
+  return characters.map((character: { id: any; }) => ({
     params: { id: character.id },
   }))
 }

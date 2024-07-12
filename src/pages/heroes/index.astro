@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { getCharacters, getFilms } from "../../services/marvel";
+import { getCharacters } from "../../services/marvel";
 
 const characters = await getCharacters(48);
 ---

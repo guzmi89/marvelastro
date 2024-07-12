@@ -23,7 +23,7 @@ export const getFilmBy = async ({ id }: { id: string }) => {
   return film[0];
 };
 
-export const getCharacters = async (amount) => {
+export const getCharacters = async (amount: number) => {
   const response = await fetch(
     `${api_marvel}characters?series=22547&limit=${amount}&ts=${ts}&apikey=${token_marvel}&hash=${hash}`
   );
